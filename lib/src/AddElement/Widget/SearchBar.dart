@@ -3,7 +3,7 @@
 //Compare this snippet from lib/AddElement/Widget/SearchBar.dart:
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mmuk/AddElement/Controller/AddElementConroller.dart';
+import 'package:mmuk/src/AddElement/Controller/AddElementConroller.dart';
 
 class SearchBar extends StatelessWidget {
   AddElementController addElementController = Get.put(AddElementController());

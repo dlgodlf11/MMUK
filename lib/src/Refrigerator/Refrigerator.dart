@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
-import 'package:mmuk/Refrigerator/Controller/RefrigeratorController.dart';
-import 'package:mmuk/Refrigerator/Widget/ElementList.dart';
+import 'package:mmuk/src/Refrigerator/Controller/RefrigeratorController.dart';
+import 'package:mmuk/src/Refrigerator/Widget/ElementList.dart';
 
 class Refrigerator extends StatelessWidget {
   RefrigeratorController controller = Get.put(RefrigeratorController());
