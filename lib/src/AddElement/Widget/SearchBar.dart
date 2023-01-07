@@ -9,21 +9,50 @@ class SearchBar extends StatelessWidget {
   AddElementController addElementController = Get.put(AddElementController());
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(top: 10, left: 20, right: 20),
-      child: TextField(
-        controller: addElementController.searchController,
-        onChanged: (value) {
-          addElementController.searchElement();
-        },
-        decoration: InputDecoration(
-          hintText: "검색",
-          prefixIcon: Icon(Icons.search),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(25.0)),
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        Positioned(
+            child: Container(
+          child: TextField(
+            controller: addElementController.searchController,
+            onChanged: (value) {
+              addElementController.searchCsv(value);
+            },
+            decoration: InputDecoration(
+              hintText: "검색",
+              prefixIcon: Icon(Icons.search),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(25.0)),
+              ),
+            ),
           ),
-        ),
-      ),
+        )),
+        Positioned(
+            right: 20,
+            child: Container(
+              child: Obx(() => Row(
+                    children: [
+                      Radio(
+                          value: 0,
+                          groupValue: addElementController.radioValue.value,
+                          onChanged: (value) {
+                            addElementController.radioValue.value =
+                                value as int;
+                          }),
+                      Text("농축산물"),
+                      Radio(
+                          value: 1,
+                          groupValue: addElementController.radioValue.value,
+                          onChanged: (value) {
+                            addElementController.radioValue.value =
+                                value as int;
+                          }),
+                      Text("수산물"),
+                    ],
+                  )),
+            ))
+      ],
     );
   }
 }
