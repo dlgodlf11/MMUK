@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mmuk/AddElement/AddElement.dart';
-import 'package:mmuk/Refrigerator/Refrigerator.dart';
+import 'package:mmuk/src/AddElement/AddElement.dart';
+import 'package:mmuk/src/Refrigerator/Refrigerator.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 class HomeController extends GetxController {

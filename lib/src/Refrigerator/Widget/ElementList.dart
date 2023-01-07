@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
-import 'package:mmuk/Refrigerator/Model/ElementData.dart';
-import 'package:mmuk/Refrigerator/Widget/ElementDetail.dart';
+import 'package:mmuk/src/Refrigerator/Model/ElementData.dart';
+import 'package:mmuk/src/Refrigerator/Widget/ElementDetail.dart';
 
 class ElementList extends StatelessWidget {
   @override

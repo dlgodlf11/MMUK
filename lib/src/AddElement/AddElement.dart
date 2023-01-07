@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mmuk/AddElement/Widget/SearchBar.dart';
-import 'package:mmuk/AddElement/Widget/SearchResult.dart';
+import 'package:mmuk/src/AddElement/Widget/SearchBar.dart';
+import 'package:mmuk/src/AddElement/Widget/SearchResult.dart';
 
 class AddElement extends StatelessWidget {
   @override
