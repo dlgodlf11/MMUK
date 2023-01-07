@@ -13,11 +13,7 @@ class SearchResultListView extends StatelessWidget {
     return Obx(() => ListView.builder(
         itemCount: addElementController.searchResult.length,
         itemBuilder: (context, index) {
-          List product =
-              addElementController.searchResult[index]["식품명"]!.split("_");
-
-          String productName = addElementController.searchResult[index]["식품명"]!
-              .replaceAll("_", " ");
+          String productName = addElementController.searchResult[index];
 
           return ListTile(
             leading: CircleAvatar(
@@ -38,8 +34,6 @@ class SearchResultListView extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     )),
             ])),
-            subtitle:
-                Text("${addElementController.searchResult[index]["식품대분류명"]}"),
 
             // trailing: IconButton(
             //   icon: Icon(Icons.delete),

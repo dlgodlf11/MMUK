@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mmuk/AddElement/Widget/AddDialog.dart';
-import 'package:mmuk/Home/Home.dart';
-import 'package:mmuk/Refrigerator/Model/ElementData.dart';
+import 'package:mmuk/src/AddElement/Widget/AddDialog.dart';
+import 'package:mmuk/src/Home/Home.dart';
+import 'package:mmuk/src/Refrigerator/Model/ElementData.dart';
 
 void main() {
   runApp(const MyApp());
