@@ -40,6 +40,7 @@ dependencies:
   persistent_bottom_nav_bar: ^5.0.2
   liquid_pull_to_refresh: ^3.0.1
   csv:
+  sqflite:
 
 dev_dependencies:
   flutter_test:
