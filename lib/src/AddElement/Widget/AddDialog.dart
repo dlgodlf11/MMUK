@@ -1,36 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:mmuk/src/DataBase/KeyTranslate.dart';
 
 class AddDialog extends StatelessWidget {
-  var element;
-  var keys = ["식품기원명", "식품대분류명", "식품중분류명", "식품소분류명", "식품세분류명"];
-  var nutritionKeys = [
-    "에너지(kcal)",
-    "수분(g)",
-    "단백질(g)",
-    "지방(g)",
-    "회분(g)",
-    "탄수화물(g)",
-    "당류(g)",
-    "식이섬유(g)",
-    "칼슘(mg)",
-    "철(mg)",
-    "인(mg)",
-    "칼륨(mg)",
-    "나트륨(mg)",
-    "비타민 A(μg RAE)",
-    "레티놀(μg)",
-    "베타카로틴(μg)",
-    "티아민(mg)",
-    "리보플라빈(mg)",
-    "니아신(mg)",
-    "비타민 C(mg)",
-    "비타민 D(μg)",
-    "콜레스테롤(mg)",
-    "포화지방산(g)",
-    "트랜스지방산(g)",
-  ];
-  AddDialog(this.element) {
-    // keys = element.keys.toList();
+  final Map<String, dynamic> ingredient;
+  late final keys;
+  AddDialog(this.ingredient) {
+    keys = ingredient.keys.toList();
   }
   @override
   Widget build(BuildContext context) {
@@ -38,7 +13,7 @@ class AddDialog extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
       ),
-      insetPadding: EdgeInsets.all(10),
+      insetPadding: EdgeInsets.all(20),
       elevation: 0,
       backgroundColor: Colors.transparent,
       child: dialogContent(context),
@@ -65,7 +40,7 @@ class AddDialog extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Column(children: [
               Text(
-                element["대표식품명"]!,
+                ingredient["ingredient"],
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -83,7 +58,7 @@ class AddDialog extends StatelessWidget {
                     Expanded(
                       flex: 1,
                       child: Text(
-                        keys[i] + " : ",
+                        koreanfromkey[keys[i]]! + " : ",
                         style: TextStyle(
                           fontSize: 15,
                           height: 2,
@@ -94,7 +69,7 @@ class AddDialog extends StatelessWidget {
                     Expanded(
                       flex: 1,
                       child: Text(
-                        element[keys[i]]!,
+                        ingredient[keys[i]].toString(),
                         style: TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.normal,
@@ -103,45 +78,48 @@ class AddDialog extends StatelessWidget {
                     ),
                   ],
                 ),
-              SizedBox(
-                height: 20,
-              ),
-              Text("영양성분표",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-              Text("영양성분함량기준량 : ${element["영양성분함량기준량"]}",
-                  style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.normal,
-                      height: 1.3)),
-              Container(
-                child: GridView.count(
-                  physics: NeverScrollableScrollPhysics(),
-                  crossAxisCount: 3,
-                  shrinkWrap: true,
-                  children: List.generate(nutritionKeys.length, (index) {
-                    return Container(
-                      child: Column(
-                        children: [
-                          Text(
-                            nutritionKeys[index],
-                            style: TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            element[nutritionKeys[index]]!,
-                            style: TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                        ],
-                      ),
-                    );
-                  }),
-                ),
-              ),
+              // SizedBox(
+              //   height: 20,
+              // ),
+              // Text("영양성분표",
+              //     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+              // Text(
+              //     "영양성분함량기준량 : ${ingredient["unit_quantity"]} ${ingredient["unit"]}",
+              //     style: TextStyle(
+              //         fontSize: 15,
+              //         fontWeight: FontWeight.normal,
+              //         height: 1.3)),
+              // // Container(
+              // //   child: GridView.count(
+              // //     physics: NeverScrollableScrollPhysics(),
+              // //     crossAxisCount: 3,
+              // //     shrinkWrap: true,
+              // //     children: List.generate(keys.length, (index) {
+              // //       return Container(
+              // //         child: Column(
+              // //           children: [
+              // //             Text(
+              // //               koreanfromkey[keys[index]]!,
+              // //               style: TextStyle(
+              // //                 fontSize: 10,
+              // //                 fontWeight: FontWeight.bold,
+              // //               ),
+              // //             ),
+              // //             ingredient[keys[index]] == "-"
+              // //                 ? SizedBox()
+              // //                 : Text(
+              // //                     "${ingredient[keys[index]]}",
+              // //                     style: TextStyle(
+              // //                       fontSize: 10,
+              // //                       fontWeight: FontWeight.normal,
+              // //                     ),
+              // //                   ),
+              // //           ],
+              // //         ),
+              // //       );
+              // //     }),
+              // //   ),
+              // // ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [

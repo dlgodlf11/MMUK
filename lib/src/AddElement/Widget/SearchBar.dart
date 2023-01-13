@@ -17,7 +17,7 @@ class SearchBar extends StatelessWidget {
           child: TextField(
             controller: addElementController.searchController,
             onChanged: (value) {
-              addElementController.searchCsv(value);
+              addElementController.searchListfromDB(value);
             },
             decoration: InputDecoration(
               hintText: "검색",
@@ -39,14 +39,28 @@ class SearchBar extends StatelessWidget {
                           onChanged: (value) {
                             addElementController.radioValue.value =
                                 value as int;
+                            addElementController.searchListfromDB(
+                                addElementController.searchController.text);
                           }),
-                      Text("농축산물"),
+                      Text("가공식품"),
                       Radio(
                           value: 1,
                           groupValue: addElementController.radioValue.value,
                           onChanged: (value) {
                             addElementController.radioValue.value =
                                 value as int;
+                            addElementController.searchListfromDB(
+                                addElementController.searchController.text);
+                          }),
+                      Text("농축산물"),
+                      Radio(
+                          value: 2,
+                          groupValue: addElementController.radioValue.value,
+                          onChanged: (value) {
+                            addElementController.radioValue.value =
+                                value as int;
+                            addElementController.searchListfromDB(
+                                addElementController.searchController.text);
                           }),
                       Text("수산물"),
                     ],

@@ -13,7 +13,9 @@ class SearchResultListView extends StatelessWidget {
     return Obx(() => ListView.builder(
         itemCount: addElementController.searchResult.length,
         itemBuilder: (context, index) {
-          String productName = addElementController.searchResult[index];
+          String productName =
+              addElementController.searchResult[index]["ingredient"];
+          String productId = addElementController.searchResult[index]["id"];
 
           return ListTile(
             leading: CircleAvatar(
@@ -49,9 +51,11 @@ class SearchResultListView extends StatelessWidget {
             //     print("Asdfasf");
             //   },
             // ),
-            onTap: () {
-              Get.dialog(AddDialog(addElementController.searchResult[index]))
-                  .then((value) {
+            onTap: () async {
+              Map<String, dynamic> ingredient = Map<String, dynamic>.from(
+                  await addElementController.searchCsv(productId));
+              print(ingredient);
+              Get.dialog(AddDialog(ingredient)).then((value) {
                 FocusManager.instance.primaryFocus?.unfocus();
               });
             },
