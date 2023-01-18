@@ -11,16 +11,6 @@ class AddElementController extends GetxController {
   DataBaseController dataBaseController = Get.find();
   RxInt radioValue = 0.obs;
   List searchType = ["processed", "ground", "water"];
-  // searchElement() {
-  //   print("object");
-  //   if (searchController.text == "") {
-  //     searchResult.value = [];
-  //     return;
-  //   }
-  //   searchResult.value = elementData.where((element) {
-  //     return element["식품명"]!.contains(searchController.text);
-  //   }).toList();
-  // }
 
   Future<void> searchListfromDB(String keyword) async {
     searchResult.value = [];

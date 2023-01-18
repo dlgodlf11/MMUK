@@ -128,6 +128,18 @@ class AddDialog extends StatelessWidget {
                       Navigator.pop(context);
                     },
                     child: Text(
+                      "추가",
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text(
                       "닫기",
                       style: TextStyle(
                         fontSize: 15,

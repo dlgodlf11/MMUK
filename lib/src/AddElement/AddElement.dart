@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mmuk/src/AddElement/Widget/SearchBar.dart';
 import 'package:mmuk/src/AddElement/Widget/SearchResult.dart';
+import 'package:mmuk/src/AddElement/Widget/SelfAddDialog.dart';
 
 class AddElement extends StatelessWidget {
   @override
@@ -24,6 +26,7 @@ class AddElement extends StatelessWidget {
                 //     context,
                 //     MaterialPageRoute(
                 //         builder: (context) => AddElementDetail()));
+                Get.dialog(SeflAddDialog());
               },
               child: Container(
                 padding: EdgeInsets.all(10),
